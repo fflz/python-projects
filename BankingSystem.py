@@ -1,5 +1,11 @@
 import random
 
+def is_odd(number):
+    if (number % 2) != 0:
+        return True
+    else:
+        return False
+    
 class Account:
     def __init__(self, card, pin, balance):
         self.card = card
@@ -10,8 +16,19 @@ class Account:
         return pin
     def create_account(self):
         firstdigits = 400000
-        lastdigits = random.randint(1000000000, 9999999999)
+        lastdigits = random.randint(100000000, 999999999)
         self.card = str(firstdigits) + str(lastdigits)
+        carditerable = list(map(int,self.card))
+        checksum = 0
+        for i in range(1,16):
+            if is_odd(i) == True:
+                carditerable[i-1] = int(carditerable[i-1]) * 2
+            print(carditerable)
+            if carditerable[i-1] > 9:
+                carditerable[i-1] = carditerable[i-1] - 9
+            checksum += carditerable[i-1]
+        finaldigit = (checksum * 9) % 10
+        self.card = str(firstdigits) + str(lastdigits) + str(finaldigit)
         self.pin = Account.generate_pin()
         return self.card
     def log_account(self):
