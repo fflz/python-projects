@@ -5,7 +5,7 @@ def is_odd(number):
         return True
     else:
         return False
-    
+
 class Account:
     def __init__(self, card, pin, balance):
         self.card = card
@@ -23,7 +23,6 @@ class Account:
         for i in range(1,16):
             if is_odd(i) == True:
                 carditerable[i-1] = int(carditerable[i-1]) * 2
-            print(carditerable)
             if carditerable[i-1] > 9:
                 carditerable[i-1] = carditerable[i-1] - 9
             checksum += carditerable[i-1]
@@ -70,5 +69,5 @@ def main_menu():
                     print("Wrong card number or PIN!")
             elif (choose == 0):
                 exit()
-                    
+
 main_menu()
