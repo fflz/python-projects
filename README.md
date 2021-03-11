@@ -1,7 +1,7 @@
 # Python projects
 ## Project: Simple Banking System
 
-**Difficulty**: Hard
+**Difficulty**: Medium
 
 **Estimated time**: 14 hours _(estimated time for beginners to learn while doing.)_
 
